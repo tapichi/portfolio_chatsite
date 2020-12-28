@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html body {
   height: 100%;
 }
@@ -14,19 +15,21 @@ html body {
 
 /* グリッド */
 .container_left {
-  grid-column: 1 / 2 ;
+  grid-column: 1 / 2;
   background-color: #7fcac3;
   position: relative;
 }
+
 .container_center {
-  grid-column: 2 / 3 ;
+  grid-column: 2 / 3;
   display: grid;
   grid-template-rows: 31% 23% 23% 23%;
   grid-template-columns: 50% 50%;
   background-color: #ffcdd2;
 }
+
 .container_right {
-  grid-column: 3 / 4 ;
+  grid-column: 3 / 4;
   background-color: #fdfdf5;
 }
 
@@ -51,18 +54,18 @@ html body {
 }
 
 .top_logo img {
- display: block;
- width: 80%;
- max-width: 150px;
- height: auto;
- margin: 2em auto;
- /* padding: 10px 0 0 10px ; */
+  display: block;
+  width: 80%;
+  max-width: 150px;
+  height: auto;
+  margin: 2em auto;
+  /* padding: 10px 0 0 10px ; */
 }
 
 /* リンク */
 .link {
   width: 80%;
-  margin:1em auto;
+  margin: 1em auto;
   padding-top: 2em;
 }
 
@@ -105,26 +108,30 @@ a.btn-border {
   padding-left: 2em;
   position: relative;
 }
+
 .character_2 {
   grid-column: 2 /3;
   grid-row: 3 /4;
   padding-right: 2em;
   position: relative;
 }
+
 .character_3 {
   grid-column: 1 /2;
   grid-row: 4 /5;
   padding-left: 2em;
   position: relative;
 }
+
 .character_img {
   width: 80%;
   height: auto;
   display: block;
   position: absolute;
-  top:15%;
+  top: 15%;
   z-index: 30;
 }
+
 .character_stage {
   width: 80%;
   margin: 0 auto;
@@ -135,11 +142,13 @@ a.btn-border {
   top: 75%;
   z-index: 20;
 }
+
 .shadow {
   min-height: 2em;
   border-radius: 50%;
   top: 80%;
 }
+
 .character_stage_shadow {
   background-color: rgba(77, 72, 70, 0.842);
   width: 80%;
@@ -152,11 +161,13 @@ a.btn-border {
   grid-row: 2 /3;
   position: relative;
 }
+
 .flying_2 {
   grid-column: 1 /2;
   grid-row: 3 /4;
   position: relative;
 }
+
 .flying_3 {
   grid-column: 2 /3;
   grid-row: 4 /5;
@@ -167,7 +178,8 @@ a.btn-border {
 @keyframes rotate_food {
   0% {
     transform: rotate(0deg);
-  } 100% {
+  }
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -176,12 +188,11 @@ a.btn-border {
   width: 15%;
   animation: rotate_food 2s infinite;
   position: absolute;
-  top:4em;
-  left:5em;
+  top: 4em;
+  left: 5em;
 }
 
 /* 投稿画面 */
-
 .user_msg {
   position: relative;
   display: flex;
@@ -250,6 +261,7 @@ a.btn-border {
   padding: 0.2em;
   font-size: 1.5em;
 }
+
 .says_center {
   font-weight: bold;
 }
