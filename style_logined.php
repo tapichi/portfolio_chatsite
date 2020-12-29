@@ -337,12 +337,6 @@ a.btn-border {
   height: auto;
 }
 
-
-
-
-
-
-
 .flying_1 {
   grid-column: 2 /3;
   grid-row: 2 /3;
