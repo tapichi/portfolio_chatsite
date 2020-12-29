@@ -48,8 +48,8 @@ html body {
 .container_center {
   grid-area: container_center;
   display: grid;
-  grid-template-rows: 31% 23% 23% 23%;
   grid-template-columns: 50% 50%;
+  grid-template-rows: 31% 23% 23% 23%;
   grid-template-areas: 
     "top_lead top_lead"
     "character_1 flying_1"
