@@ -2,7 +2,6 @@
 session_start();
 
 require('db_connect.php');
-// require('validation.php');
 
   function h($str){
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -36,12 +35,10 @@ require('db_connect.php');
   if($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])){
     $_POST = $_SESSION['join'];
   }
-  
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,21 +57,6 @@ require('db_connect.php');
     <img src="./img/logo.png" alt="">
     <p>Praise<br><br>us !</p>
   </div>
-
-  <!-- 会員登録ボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">Let's join !</a>
-  </div> -->
-
-  <!-- マイページボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">My page</a>
-  </div> -->
-
-  <!-- ログアウトボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">logout</a>
-  </div> -->
 
   <!-- 戻るボタン -->
   <div class="link link_back">
@@ -122,63 +104,53 @@ require('db_connect.php');
     </form>
     
     <div class="select_character">
-
       <div class="choose_index">
         <p>Choose your character !</p>
       </div>
 
-          <div class="view_characters">
-            <img id="chara_img" src="./img/chara_1_1.svg" alt="">
-            <div class="character_stage"></div>
-            <div class="character_stage_shadow shadow"></div>
-            <div class="radio">
-              <input id="type" name="type" type="radio" value="1" form="form"><label for="type">this !</label>
-            </div>
-              <input class="back" type="button" value="◀" onclick="go_back()">
-              <input class="go" type="button" value="▶" onclick="go_forward()">
-            <script>
-              var img_src = new Array("./img/chara_1_1.svg", "./img/chara_2_1.svg", "./img/chara_3_1.svg");
-              var i = 1;
-
-              function go_forward(){
-                if(i == 3) {
-                  i == 1;
-                } else {
-                  i++;
-                }
-                document.getElementById("chara_img").src=img_src[i-1];
-                document.getElementById("type").value=i;
-              }
-              function go_back(){
-                if(i == 1) {
-                  i == 3;
-                } else {
-                  i--;
-                }
-                document.getElementById("chara_img").src=img_src[i-1];
-                document.getElementById("type").value=i;
-              }
-            </script>
-          </div>
-          
-          <div class="form_group character_name">
-            <label for="character_name">What's his name ?</label>
-            <input type="text" id="character_name" name="character_name" class="form-control" form="form" value="<?php echo h($_POST['character_name']); ?>" required>
-          </div>
-          
-          
-          
-          
+      <div class="view_characters">
+        <img id="chara_img" src="./img/chara_1_1.svg" alt="">
+        <div class="character_stage"></div>
+        <div class="character_stage_shadow shadow"></div>
+        <div class="radio">
+          <input id="type" name="type" type="radio" value="1" form="form"><label for="type">this !</label>
         </div>
+          <input class="back" type="button" value="◀" onclick="go_back()">
+          <input class="go" type="button" value="▶" onclick="go_forward()">
+        <script>
+          var img_src = new Array("./img/chara_1_1.svg", "./img/chara_2_1.svg", "./img/chara_3_1.svg");
+          var i = 1;
+
+          function go_forward(){
+            if(i == 3) {
+              i == 1;
+            } else {
+              i++;
+            }
+            document.getElementById("chara_img").src=img_src[i-1];
+            document.getElementById("type").value=i;
+          }
+          function go_back(){
+            if(i == 1) {
+              i == 3;
+            } else {
+              i--;
+            }
+            document.getElementById("chara_img").src=img_src[i-1];
+            document.getElementById("type").value=i;
+          }
+        </script>
+      </div>
+          
+      <div class="form_group character_name">
+        <label for="character_name">What's his name ?</label>
+        <input type="text" id="character_name" name="character_name" class="form-control" form="form" value="<?php echo h($_POST['character_name']); ?>" required>
+      </div>      
+    </div>
         
-        <div class="regist_submit">
-          <input type="submit" value="CHECK!" form="form" />
-        </div>
-
-
-
-
-  
+    <div class="regist_submit">
+      <input type="submit" value="CHECK!" form="form" />
+    </div>
 
 </div>
 </body>

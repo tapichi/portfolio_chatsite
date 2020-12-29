@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* 共通設定 */
 html body {
   height: 100%;
 }
@@ -7,35 +9,30 @@ html body {
   width: 100vw;
   height: 100vh;
   min-height: 100%;
-  grid-template-rows: auto;
   grid-template-columns: 15% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "container_left container_right";
   background-color: #ffcdd2;
   overflow: auto;
-  /* z-index: -100; */
 }
 
 /* グリッド */
 .container_left {
-  grid-column: 1 / 2 ;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: container_left;
   background-color: #7fcac3;
   position: relative;
 }
-/* .container_center {
-  grid-column: 2 / 3 ;
-  display: grid;
-  grid-template-rows: 31% 23% 23% 23%;
-  grid-template-columns: 50% 50%;
-  background-color: #ffcdd2;
-} */
+
 .container_right {
-  grid-column: 2/ 3;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: container_right;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 15% 70% 15%;
-  grid-template-areas:
-    "top_index_area top_index_area"
-    "input_form_area choose_chara_area"
-    "submit_area submit_area" ;
+  grid-template-areas: "top_index_area top_index_area" "input_form_area choose_chara_area" "submit_area submit_area";
 }
 
 /* 共通バー */
@@ -43,7 +40,6 @@ html body {
 .top_logo {
   position: relative;
 }
-
 .top_logo p {
   position: absolute;
   color: #7fcac3;
@@ -54,22 +50,17 @@ html body {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  margin: 0;
-  padding: 0;
 }
-
 .top_logo img {
- display: block;
- width: 80%;
- max-width: 150px;
- height: auto;
- margin: 2em auto;
+  display: block;
+  width: 80%;
+  margin: 2em auto;
 }
 
 /* リンク */
 .link {
   width: 80%;
-  margin:1em auto;
+  margin: 1em auto;
   padding-top: 2em;
 }
 
@@ -77,16 +68,16 @@ html body {
   position: absolute;
   bottom: 1rem;
   left: 50%;
-  transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  -webkit-transform: translate(-50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }
 
 a.btn-border {
   display: block;
   padding: 1rem;
-  border: .2em dashed #ffcdd2;
-  border-radius: .5rem .5rem .5rem .5rem;
+  border: 0.2em dashed #ffcdd2;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   text-decoration: none;
   text-align: center;
   color: #ffcdd2;
@@ -96,12 +87,17 @@ a.btn-border {
 
 /*  入力フォーム  */
 .top_index {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: top_index_area;
   font-size: 2em;
   padding: 2em;
 }
 
 .registration_form {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: input_form_area;
 }
 
@@ -111,42 +107,44 @@ a.btn-border {
   font-size: 2em;
   padding: 1em 1em 1em 3em;
 }
+
 .registration_form label {
   display: inline-block;
   width: 5em;
 }
 
 .select_character {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
   grid-area: choose_chara_area;
 }
+
 .choose_index {
   font-size: 2em;
   padding: 1em 1em 2em 2em;
 }
+
 .view_characters {
   position: relative;
   width: 100%;
   height: auto;
-  /* min-height: 6em; */
 }
 .view_characters img {
   display: block;
   position: relative;
   width: 60%;
   max-width: 22em;
-  height: auto;
-  /* max-height: 60%; */
   margin: 0 auto;
   z-index: 3;
 }
 
-.character_stage {
+.character_stage, .character_stage_shadow {
   width: 60%;
-  margin: 0 auto;
   height: 8em;
   min-height: 2em;
-  background-color: seashell;
   border-radius: 50%;
+  margin: 0 auto;
+  background-color: seashell;
   position: absolute;
   bottom: -5%;
   left: 50%;
@@ -155,21 +153,16 @@ a.btn-border {
   -webkit-transform: translate(-50%);
   z-index: 2;
 }
+
 .character_stage_shadow {
   height: 7em;
   min-height: 1.5em;
-  border-radius: 50%;
-  bottom: -10%;
   background-color: rgba(77, 72, 70, 0.842);
-  width: 60%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  -webkit-transform: translate(-50%);
+  bottom: -10%;
   z-index: 1;
 }
-.view_characters .go {
+
+.view_characters .go, .view_characters .radio, .view_characters .back {
   display: block;
   position: absolute;
   bottom: -30%;
@@ -179,53 +172,45 @@ a.btn-border {
   -webkit-transform: translate(-30%);
 }
 .view_characters .back {
-  display: block;
-  position: absolute;
-  bottom: -30%;
   left: 30%;
-  transform: translate(-30%);
-  -ms-transform: translate(-30%);
-  -webkit-transform: translate(-30%);
 }
 .view_characters .radio {
-  display: block;
-  position: absolute;
   bottom: -40%;
   left: 50%;
+  font-size: 2em;
   transform: translate(-50%);
   -ms-transform: translate(-50%);
   -webkit-transform: translate(-50%);
-  font-size: 2em;
 }
 
 .character_name {
   width: 100%;
-  height: auto;
   padding-top: 4em;
 }
 
 .regist_submit {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: submit_area;
   width: 100%;
   text-align: center;
 }
-
 .regist_submit input {
-  display: block;
+  width: 30%;
+  max-height: 7em;
+  font-size: 3em;
   border: 1px solid transparent;
   border-radius: 10%;
   padding: 0.5em;
   margin: auto;
-  width: 30%;
-  max-height: 7em;
-  font-size: 3em;
+  display: block;
   background: #7fcac3;
   color: #ffffff;
 }
 
 .error {
-	font-size: 90%;
-	color: #BB1850;
+  font-size: 90%;
+  color: #BB1850;
 }
-
-
+/*# sourceMappingURL=style_join.css.map */
