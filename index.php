@@ -11,7 +11,7 @@ require('db_connect.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="reset.css" />
-  <link rel="stylesheet" href="style.min.css" />
+  <link rel="stylesheet" href="style.css" />
 
   <title>Praise us!</title>
 </head>
@@ -71,7 +71,12 @@ require('db_connect.php');
 
   <div class="msg_list">
     
-
+  <?php
+    $posts_1 = array(
+      '早起きしてゆっくり朝ご飯をたべれた！',
+      '仕事で頑張れた！',
+    );
+    foreach($posts_1 as $index => $post): ?>
   <div class="user_msg other_msg">
     <div class="action_contents">
       <?php for( $i=1; $i<=3; $i++): ?>
@@ -80,89 +85,51 @@ require('db_connect.php');
     </div>
     <div class="msg">
       <div class="says">
-        <p>早起きしてゆっくり朝ご飯をたべれた！</p>
+        <p><?php print($post); ?></p>
       </div>
     </div>
       <div class="msg_icon">
-        <img src="./img/chara_2.svg" alt="">
+        <img src="./img/chara_<?php print($index+1); ?>_1.svg" alt="">
       </div>
   </div>
-  <div class="user_msg other_msg">
-    <div class="action_contents">
-      <?php for( $i=1; $i<=3; $i++): ?>
-      <img src="./img/food_<?php print($i); ?>.svg" alt="">
-      <?php endfor; ?>
-    </div>
-    <div class="msg">
-      <div class="says">
-        <p>仕事で頑張った！アイスを買って帰ろう～</p>
-      </div>
-    </div>
-      <div class="msg_icon">
-        <img src="./img/chara_3.svg" alt="">
-      </div>
-  </div>
+  <?php endforeach; ?>
   <div class="user_msg my_msg">
     <div class="msg">
       <div class="says">
-        <p class="says_center">今日あったよかったことを呟いてみよう：）</p>
+        <p class="says_center">今日のよかったことを呟いてみよう：）</p>
       </div>
     </div>
   </div>
-  <div class="user_msg other_msg">
-    <div class="action_contents">
-      <?php for( $i=1; $i<=3; $i++): ?>
-      <img src="./img/food_<?php print($i); ?>.svg" alt="">
-      <?php endfor; ?>
-    </div>
-    <div class="msg">
-      <div class="says">
-        <p>テストの点数が上がった！</p>
-      </div>
-    </div>
-      <div class="msg_icon">
-        <img src="./img/chara_1.svg" alt="">
-      </div>
-  </div>
-  <div class="user_msg other_msg">
-    <div class="action_contents">
-      <?php for( $i=1; $i<=3; $i++): ?>
-      <img src="./img/food_<?php print($i); ?>.svg" alt="">
-      <?php endfor; ?>
-    </div>
-    <div class="msg">
-      <div class="says">
-        <p>筋トレ継続５日目です。</p>
-      </div>
-    </div>
-      <div class="msg_icon">
-        <img src="./img/chara_2.svg" alt="">
-      </div>
-  </div>
-  <div class="user_msg other_msg">
-    <div class="action_contents">
-      <?php for( $i=1; $i<=3; $i++): ?>
-      <img src="./img/food_<?php print($i); ?>.svg" alt="">
-      <?php endfor; ?>
-    </div>
-    <div class="msg">
-      <div class="says">
-        <p>スパイスカレーのテンパリングがうまくいった！！</p>
-      </div>
-    </div>
-      <div class="msg_icon">
-        <img src="./img/chara_3.svg" alt="">
-      </div>
-  </div>
-
-
-
-  </div>
-
-
-</div>
-
+  <?php
+    $posts_2 = array(
+      'スケジュール通り勉強できた★',
+      '筋トレ継続５日目です。',
+      'スパイスカレーのテンパリングがうまくいった！！',
+      'Praise us! は Three Good Things を実践するための投稿サイトです。',
+      '「良いことを毎日三つ書く」を、楽しく継続できるよう、以下の機能を実装しています。',
+      '会員登録機能、投稿機能、他ユーザーへのアクション機能、アクションにより投稿可能数増加、キャラクターのレベルアップ、イラスト変化　等',
   
+    );
+    foreach($posts_2 as $index => $post):  ?>
+  <div class="user_msg other_msg">
+    <div class="action_contents">
+      <?php for( $i=1; $i<=3; $i++): ?>
+      <img src="./img/food_<?php print($i); ?>.svg" alt="">
+      <?php endfor; ?>
+    </div>
+    <div class="msg">
+      <div class="says">
+        <p><?php print($post); ?></p>
+      </div>
+    </div>
+      <div class="msg_icon">
+        <img src="./img/chara_<?php print($index+1); ?>_1.svg" alt="">
+      </div>
+  </div>
+  <?php endforeach; ?>
+
+  </div>
+</div>
 
 </div>
 </body>

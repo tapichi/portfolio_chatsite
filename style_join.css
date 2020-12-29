@@ -30,8 +30,8 @@ html body {
 .container_right {
   grid-column: 2/ 3;
   display: grid;
-  grid-template-rows: 15% 70% 15%;
   grid-template-columns: 50% 50%;
+  grid-template-rows: 15% 70% 15%;
   grid-template-areas:
     "top_index_area top_index_area"
     "input_form_area choose_chara_area"
