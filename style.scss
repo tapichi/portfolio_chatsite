@@ -1,3 +1,26 @@
+/* 共通設定 */
+$mainColorBlue:#7fcac3;
+$mainColorPink:#ffcdd2;
+$shadowColor:rgba(77, 72, 70, 0.842);
+
+@mixin transition($position1, $position2) {
+  transform: translate($position1, $position2);
+  -ms-transform: translate($position1, $position2);
+  -webkit-transform: translate($position1, $position2);
+}
+
+@mixin pseudoElement($rotate){
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  border: 8px solid transparent;
+  border-right: 18px solid #f5f1a6;
+  -webkit-transform: rotate($rotate);
+  transform: rotate($rotate); 
+}
+
+
 html body {
   height: 100%;
 }
@@ -7,67 +30,68 @@ html body {
   width: 100vw;
   height: 100vh;
   min-height: 100%;
-  grid-template-rows: auto;
   grid-template-columns: 15% 35% 1fr;
-  background-color: #ffcdd2;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "container_left container_center container_right";
+  background-color: $mainColorPink;
 }
 
 /* グリッド */
 
 .container_left {
-  grid-column: 1 / 2;
-  background-color: #7fcac3;
+  grid-area: container_left;
+  background-color: $mainColorBlue;
   position: relative;
 }
 
 .container_center {
-  grid-column: 2 / 3;
+  grid-area: container_center;
   display: grid;
   grid-template-rows: 31% 23% 23% 23%;
   grid-template-columns: 50% 50%;
-  background-color: #ffcdd2;
+  grid-template-areas: 
+    "top_lead top_lead"
+    "character_1 flying_1"
+    "flying_2 character_2"
+    "character_3 flying_3";
+  background-color: $mainColorPink;
 }
 
 .container_right {
-  grid-column: 3 / 4;
+  grid-area: container_right;
   background-color: #fdfdf5;
 }
 
 /* 共通バー */
 /* トップロゴ */
 
+$barWidth: 80%;
+
 .top_logo {
   position: relative;
 
   p {
     position: absolute;
-    color: #7fcac3;
+    color: $mainColorBlue;
     font-weight: bold;
     font-size: 2.5rem;
     top: 50%;
     left: 60%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 0;
+    @include transition(-50%, -50%);
   }
 
   img {
     display: block;
-    width: 80%;
-    max-width: 150px;
-    height: auto;
+    width: $barWidth;
     margin: 2em auto;
-
-    /* padding: 10px 0 0 10px ; */
   }
 }
 
 /* リンク */
 
 .link {
-  width: 80%;
+  width: $barWidth;
   margin: 1em auto;
   padding-top: 2em;
 }
@@ -76,19 +100,17 @@ html body {
   position: absolute;
   bottom: 1rem;
   left: 50%;
-  transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  -webkit-transform: translate(-50%);
+  @include transition(-50%, -50%);
 }
 
 a.btn-border {
   display: block;
   padding: 1rem;
-  border: .2em dashed #ffcdd2;
+  border: .2em dashed $mainColorPink;
   border-radius: .5rem .5rem .5rem .5rem;
   text-decoration: none;
   text-align: center;
-  color: #ffcdd2;
+  color: $mainColorPink;
   font-weight: bold;
   font-size: 2em;
 }
@@ -96,86 +118,65 @@ a.btn-border {
 /* キャラクター画面  */
 
 .top_lead {
-  grid-column: 1 /3;
-  grid-row: 1/ 2;
+  grid-area: top_lead;
+  color: $mainColorBlue;
   text-align: center;
-  margin: auto 2rem;
+  line-height: 1.5em;
   font-weight: bold;
   font-size: 3em;
-  line-height: 1.5em;
-  color: #7fcac3;
+  margin: auto 2rem;
 }
 
-.character_1 {
-  grid-column: 1 /2;
-  grid-row: 2 /3;
-  padding-left: 2em;
-  position: relative;
-}
+$characters: character_1, character_2, character_3;
 
-.character_2 {
-  grid-column: 2 /3;
-  grid-row: 3 /4;
-  padding-right: 2em;
-  position: relative;
-}
-
-.character_3 {
-  grid-column: 1 /2;
-  grid-row: 4 /5;
-  padding-left: 2em;
-  position: relative;
+@each $character in $characters {
+  @if $character == character_2 {
+    .#{$character} {
+      grid-area: $character;
+      padding-right: 2em;
+      position: relative;
+    }
+  } @else {
+    .#{$character} {
+      grid-area: $character;
+      padding-left: 2em;
+      position: relative;
+    }
+  }
 }
 
 .character_img {
   width: 80%;
-  height: auto;
   display: block;
   position: absolute;
   top: 15%;
-  z-index: 30;
+  z-index: 3;
 }
 
 .character_stage {
   width: 80%;
-  margin: 0 auto;
   min-height: 2em;
-  background-color: seashell;
   border-radius: 50%;
   position: absolute;
+  background-color: seashell;
   top: 75%;
-  z-index: 20;
-}
-
-.shadow {
-  min-height: 2em;
-  border-radius: 50%;
-  top: 80%;
+  z-index: 2;
 }
 
 .character_stage_shadow {
-  background-color: rgba(77, 72, 70, 0.842);
-  width: 80%;
-  position: absolute;
-  z-index: 10;
+  @extend .character_stage;
+  background-color: $shadowColor;
+  top: 80%;
+  z-index: 1;
 }
 
-.flying_1 {
-  grid-column: 2 /3;
-  grid-row: 2 /3;
-  position: relative;
-}
+$flyings: flying_1, flying_2, flying_3;
 
-.flying_2 {
-  grid-column: 1 /2;
-  grid-row: 3 /4;
-  position: relative;
-}
-
-.flying_3 {
-  grid-column: 2 /3;
-  grid-row: 4 /5;
-  position: relative;
+@each $flying in $flyings {
+  .#{$flying} {
+    grid-area: $flying;
+    position: relative; 
+  }
 }
 
 /* 回転アニメーション */
@@ -183,7 +184,6 @@ a.btn-border {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -213,13 +213,7 @@ a.btn-border {
 .action_contents {
   width: 3%;
   min-width: 1.8em;
-
-  /* max-height: 5em; */
   margin-left: 1em;
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
 
   img {
     padding: 0.1em;
@@ -227,7 +221,6 @@ a.btn-border {
 }
 
 .my_msg {
-  /* margin: 1em 0; */
   overflow: hidden;
   width: 100%;
 
@@ -235,6 +228,11 @@ a.btn-border {
     width: 100%;
     min-height: 3em;
     text-align: center;
+  }
+
+  .says::after {
+    @include pseudoElement(35deg);
+    left: -19px;
   }
 }
 
@@ -247,28 +245,13 @@ a.btn-border {
   height: auto;
   min-width: 90%;
   min-height: 3em;
-
-  /* border: 1px solid #202020; */
   border-radius: 12px;
   background: #f5f1a6;
-}
-
-.my_msg .says::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 3px;
-  left: -19px;
-  border: 8px solid transparent;
-  border-right: 18px solid #f5f1a6;
-  -webkit-transform: rotate(35deg);
-  transform: rotate(35deg);
-}
-
-.says p {
-  margin: 0;
-  padding: 0.2em;
-  font-size: 1.5em;
+  p {
+    margin: 0;
+    padding: 0.2em;
+    font-size: 1.5em;
+  }
 }
 
 .says_center {
@@ -277,23 +260,14 @@ a.btn-border {
 
 .other_msg {
   .says::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 3px;
+    @include pseudoElement(140deg);
     right: -19px;
-    border: 8px solid transparent;
-    border-right: 18px solid #f5f1a6;
-    -webkit-transform: rotate(140deg);
-    transform: rotate(140deg);
   }
 
   .msg_icon {
     width: 10%;
     height: auto;
     max-width: 3em;
-
-    /* margin-left: 1.5em; */
 
     img {
       display: block;
@@ -304,11 +278,8 @@ a.btn-border {
   }
 
   .msg {
-    /* width: 100%; */
     min-height: 3em;
     padding-left: 2em;
     margin: auto;
-
-    /* text-align: left; */
   }
 }
