@@ -43,16 +43,14 @@ if(!empty($_POST)){
   );
   $stmt->execute($params);
 
-  // unset($_SESSION['join']);
   $_SESSION['join']['user_id'] = $user_id;
   header('Location: thanks.php');
   exit();
-
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,21 +69,6 @@ if(!empty($_POST)){
     <img src="./img/logo.png" alt="">
     <p>Praise<br><br>us !</p>
   </div>
-
-  <!-- 会員登録ボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">Let's join !</a>
-  </div> -->
-
-  <!-- マイページボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">My page</a>
-  </div> -->
-
-  <!-- ログアウトボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">logout</a>
-  </div> -->
 
   <!-- 戻るボタン -->
   <div class="link link_back">
@@ -139,20 +122,11 @@ if(!empty($_POST)){
     </div>
 
     <div class="regist_submit">
-      <!-- <a href="join.php?action=rewrite">&laquo;&nbsp;back</a> -->
       <input type="submit" value="CHECK!" />
     </div>
     </form>
-
-
-
 </div>
-
-
-
-
-
-  
+ 
 
 </div>
 </body>
