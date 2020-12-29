@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* 共通設定 */
 html body {
   height: 100%;
 }
@@ -7,36 +9,29 @@ html body {
   width: 100vw;
   height: 100vh;
   min-height: 100%;
-  grid-template-rows: auto;
   grid-template-columns: 15% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "container_left container_right";
   background-color: #ffcdd2;
   overflow: auto;
-  /* z-index: -100; */
 }
 
 /* グリッド */
 .container_left {
-  grid-column: 1 / 2 ;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: container_left;
   background-color: #7fcac3;
   position: relative;
 }
-/* .container_center {
-  grid-column: 2 / 3 ;
-  display: grid;
-  grid-template-rows: 31% 23% 23% 23%;
-  grid-template-columns: 50% 50%;
-  background-color: #ffcdd2;
-} */
+
 .container_right {
-  grid-column: 2/ 3;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: container_right;
   display: grid;
   grid-template-rows: 15% 60% 10% 15%;
-  /* grid-template-columns: ; */
-  grid-template-areas:
-    "top_index_area"
-    "chara_area"
-    "level_area"
-    "submit_area" ;
+  grid-template-areas: "top_index_area" "chara_area" "level_area" "submit_area";
 }
 
 /* 共通バー */
@@ -44,7 +39,6 @@ html body {
 .top_logo {
   position: relative;
 }
-
 .top_logo p {
   position: absolute;
   color: #7fcac3;
@@ -55,22 +49,17 @@ html body {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  margin: 0;
-  padding: 0;
 }
-
 .top_logo img {
- display: block;
- width: 80%;
- max-width: 150px;
- height: auto;
- margin: 2em auto;
+  display: block;
+  width: 80%;
+  margin: 2em auto;
 }
 
 /* リンク */
 .link {
   width: 80%;
-  margin:1em auto;
+  margin: 1em auto;
   padding-top: 2em;
 }
 
@@ -78,16 +67,16 @@ html body {
   position: absolute;
   bottom: 1rem;
   left: 50%;
-  transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  -webkit-transform: translate(-50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }
 
 a.btn-border {
   display: block;
   padding: 1rem;
-  border: .2em dashed #ffcdd2;
-  border-radius: .5rem .5rem .5rem .5rem;
+  border: 0.2em dashed #ffcdd2;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   text-decoration: none;
   text-align: center;
   color: #ffcdd2;
@@ -95,8 +84,10 @@ a.btn-border {
   font-size: 2em;
 }
 
-/*  ありがとうフォーム  */
+/*  thanksフォーム  */
 .thanks {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: top_index_area;
   width: 100%;
   height: auto;
@@ -108,21 +99,19 @@ a.btn-border {
 }
 
 .chara_area {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: chara_area;
   position: relative;
 }
-/* .choose_index {
-  font-size: 2em;
-  padding: 1em 1em 2em 2em;
-} */
+
 .view_characters {
   position: absolute;
-  top:20%;
+  top: 20%;
   width: 100%;
   height: auto;
   padding: 2em;
-  margin: auto
-  /* min-height: 6em; */
+  margin: auto;
 }
 .view_characters img {
   display: block;
@@ -130,12 +119,11 @@ a.btn-border {
   width: 70%;
   max-width: 30em;
   height: auto;
-  /* max-height: 60%; */
   margin: 0 auto;
   z-index: 3;
 }
 
-.character_stage {
+.character_stage, .character_stage_shadow {
   width: 30%;
   margin: 0 auto;
   height: 8em;
@@ -150,44 +138,34 @@ a.btn-border {
   -webkit-transform: translate(-50%);
   z-index: 2;
 }
+
 .character_stage_shadow {
   height: 7em;
   min-height: 1.5em;
-  border-radius: 50%;
-  bottom: -10%;
   background-color: rgba(77, 72, 70, 0.842);
-  width: 30%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  -webkit-transform: translate(-50%);
+  bottom: -10%;
   z-index: 1;
 }
 
 .level {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
   grid-area: level_area;
   width: 100%;
-  height: auto;
   display: block;
   text-align: center;
   font-size: 2em;
   line-height: 4em;
-
 }
-/* .character_name {
-  width: 100%;
-  height: auto;
-  padding-top: 3em;
-} */
 
 .start {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
   grid-area: submit_area;
   width: 100%;
   text-align: center;
   padding: 2em;
 }
-
 .start input {
   display: block;
   border: 1px solid transparent;
@@ -197,10 +175,7 @@ a.btn-border {
   width: 30%;
   max-height: 7em;
   font-size: 3em;
-  /* line-height: 3em; */
   background: #7fcac3;
   color: #ffffff;
 }
-
-
-
+/*# sourceMappingURL=style_thanks.css.map */

@@ -40,21 +40,6 @@ if(!empty($_POST)){
     <p>Praise<br><br>us !</p>
   </div>
 
-  <!-- 会員登録ボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">Let's join !</a>
-  </div> -->
-
-  <!-- マイページボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">My page</a>
-  </div> -->
-
-  <!-- ログアウトボタン -->
-  <!-- <div class="link">
-    <a href="" class="btn btn-border">logout</a>
-  </div> -->
-
   <!-- 戻るボタン -->
   <div class="link link_back">
     <a href="" class="btn btn-border">back</a>
@@ -67,9 +52,7 @@ if(!empty($_POST)){
 <div class="container_right">
   <div class="thanks">
      <img src="./img/thanks.svg" alt="">
-  </div>
-      
-
+  </div>      
       <div class="chara_area">
           <div class="view_characters">
             <img src="./img/chara_<?php print($_SESSION['join']['type']); ?>_1.svg" alt="">
@@ -83,12 +66,7 @@ if(!empty($_POST)){
       <form class="start" action="" method="post">
       <input type="hidden" name="action" value="submit">
         <input type="submit" value="START!" />
-        <!-- <a href="index_logined.php">START!</a> -->
       </form>
-
-
-
-
 
 </div>
 
