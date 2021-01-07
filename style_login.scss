@@ -1,0 +1,74 @@
+
+#wrap {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  grid-template-columns: 15% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "container_left container_right";
+  background-color: $mainColorPink;
+  overflow: auto;
+}
+
+/* グリッド */
+
+.container_left {
+  grid-area: container_left;
+  background-color: $mainColorBlue;
+  position: relative;
+}
+
+.container_right {
+  grid-area: container_right;
+  display: grid;
+  grid-template-rows: 15% 60% 25%;
+  grid-template-areas: "top_index_area" "login_area" "submit_area";
+}
+
+/*  ログインフォーム  */
+
+.top_index {
+  grid-area: top_index_area;
+  font-size: 2em;
+  padding: 2em;
+}
+
+.login {
+  grid-area: login_area;
+  width: 100%;
+  height: auto;
+}
+
+.form_group {
+  width: 100%;
+  height: auto;
+  font-size: 2em;
+  padding: 1em 1em 1em 3em;
+}
+
+.registration_form label {
+  display: inline-block;
+  width: 5em;
+}
+
+.login_submit {
+  grid-area: submit_area;
+  width: 100%;
+  text-align: center;
+  padding: 2em;
+
+  input {
+    display: block;
+    border: 1px solid transparent;
+    border-radius: 10%;
+    padding: 0.5em;
+    margin: auto;
+    width: 30%;
+    max-height: 7em;
+    font-size: 3em;
+    background: $mainColorBlue;
+    color: #ffffff;
+  }
+}

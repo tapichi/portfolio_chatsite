@@ -1,0 +1,154 @@
+
+#wrap {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  grid-template-columns: 15% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "container_left container_right";
+  background-color: $mainColorPink;
+  overflow: auto;
+}
+
+/* グリッド */
+
+.container_left {
+  grid-area: container_left;
+  background-color: $mainColorBlue;
+  position: relative;
+}
+
+.container_right {
+  grid-area: container_right;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 15% 70% 15%;
+  grid-template-areas: "top_index_area top_index_area" "input_form_area choose_chara_area" "submit_area submit_area";
+}
+
+/*  入力フォーム  */
+
+.top_index {
+  grid-area: top_index_area;
+  font-size: 2em;
+  padding: 2em;
+}
+
+.registration_form {
+  grid-area: input_form_area;
+}
+
+.form_group {
+  width: 100%;
+  height: auto;
+  font-size: 2em;
+  padding: 1em 1em 1em 3em;
+}
+
+.registration_form label {
+  display: inline-block;
+  width: 5em;
+}
+
+.select_character {
+  grid-area: choose_chara_area;
+}
+
+.choose_index {
+  font-size: 2em;
+  padding: 1em 1em 2em 2em;
+}
+
+.view_characters {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  img {
+    display: block;
+    position: relative;
+    width: 60%;
+    max-width: 22em;
+    margin: 0 auto;
+    z-index: 3;
+  }
+}
+
+.character_stage {
+  width: 60%;
+  height: 8em;
+  min-height: 2em;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-color: seashell;
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  @include transitionStage(-50%);
+  z-index: 2;
+}
+
+.character_stage_shadow {
+  @extend .character_stage;
+  height: 7em;
+  min-height: 1.5em;
+  background-color: rgba(77, 72, 70, 0.842);
+  bottom: -10%;
+  z-index: 1;
+}
+
+.view_characters {
+  .go {
+    display: block;
+    position: absolute;
+    bottom: -30%;
+    right: 30%;
+    @include transitionStage(-30%);
+  }
+
+  .back {
+    @extend .go;
+    left: 30%;
+  }
+
+  .radio {
+    @extend .go;
+    bottom: -40%;
+    left: 50%;
+    font-size: 2em;
+    @include transitionStage(-50%);
+  }
+}
+
+.character_name {
+  width: 100%;
+  padding-top: 4em;
+}
+
+.regist_submit {
+  grid-area: submit_area;
+  width: 100%;
+  text-align: center;
+
+  input {
+    width: 30%;
+    max-height: 7em;
+    font-size: 3em;
+    border: 1px solid transparent;
+    border-radius: 10%;
+    padding: 0.5em;
+    margin: auto;
+    display: block;
+    background: $mainColorBlue;
+    color: #ffffff;
+  }
+}
+
+.error {
+  font-size: 90%;
+  color: #BB1850;
+}
+
+
