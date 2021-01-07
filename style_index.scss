@@ -1,0 +1,208 @@
+
+#wrap {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  grid-template-columns: 15% 35% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "container_left container_center container_right";
+  background-color: $mainColorPink;
+}
+
+/* グリッド */
+
+.container_left {
+  grid-area: container_left;
+  background-color: $mainColorBlue;
+  position: relative;
+}
+
+.container_center {
+  grid-area: container_center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 31% 23% 23% 23%;
+  grid-template-areas: 
+    "top_lead top_lead"
+    "character_1 flying_1"
+    "flying_2 character_2"
+    "character_3 flying_3";
+  background-color: $mainColorPink;
+}
+
+.container_right {
+  grid-area: container_right;
+  background-color: #fdfdf5;
+}
+
+
+/* キャラクター画面  */
+
+.top_lead {
+  grid-area: top_lead;
+  color: $mainColorBlue;
+  text-align: center;
+  line-height: 1.5em;
+  font-weight: bold;
+  font-size: 3em;
+  margin: auto 2rem;
+}
+
+$characters: character_1, character_2, character_3;
+
+@each $character in $characters {
+  @if $character == character_2 {
+    .#{$character} {
+      grid-area: $character;
+      padding-right: 2em;
+      position: relative;
+    }
+  } @else {
+    .#{$character} {
+      grid-area: $character;
+      padding-left: 2em;
+      position: relative;
+    }
+  }
+}
+
+.character_img {
+  width: 80%;
+  display: block;
+  position: absolute;
+  top: 15%;
+  z-index: 3;
+}
+
+.character_stage {
+  width: 80%;
+  min-height: 2em;
+  border-radius: 50%;
+  position: absolute;
+  background-color: seashell;
+  top: 75%;
+  z-index: 2;
+}
+
+.character_stage_shadow {
+  @extend .character_stage;
+  background-color: $shadowColor;
+  top: 80%;
+  z-index: 1;
+}
+
+$flyings: flying_1, flying_2, flying_3;
+
+@each $flying in $flyings {
+  .#{$flying} {
+    grid-area: $flying;
+    position: relative; 
+  }
+}
+
+/* 回転アニメーション */
+@keyframes rotate_food {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.flying_animation {
+  width: 15%;
+  animation: rotate_food 2s infinite;
+  position: absolute;
+  top: 4em;
+  left: 5em;
+}
+
+/* 投稿画面 */
+
+.user_msg {
+  position: relative;
+  display: flex;
+  padding: 1.5em 3em;
+}
+
+.msg {
+  width: 90%;
+  height: auto;
+}
+
+.action_contents {
+  width: 3%;
+  min-width: 1.8em;
+  margin-left: 1em;
+
+  img {
+    padding: 0.1em;
+  }
+}
+
+.my_msg {
+  overflow: hidden;
+  width: 100%;
+
+  .msg {
+    width: 100%;
+    min-height: 3em;
+    text-align: center;
+  }
+
+  .says::after {
+    @include pseudoElement(35deg);
+    left: -19px;
+  }
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: auto 0;
+  padding: 1em;
+  width: 95%;
+  height: auto;
+  min-width: 90%;
+  min-height: 3em;
+  border-radius: 12px;
+  background: #f5f1a6;
+  p {
+    margin: 0;
+    padding: 0.2em;
+    font-size: 1.5em;
+  }
+}
+
+.says_center {
+  font-weight: bold;
+}
+
+.other_msg {
+  .says::after {
+    @include pseudoElement(140deg);
+    right: -19px;
+  }
+
+  .msg_icon {
+    width: 10%;
+    height: auto;
+    max-width: 3em;
+
+    img {
+      display: block;
+      margin: auto;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .msg {
+    min-height: 3em;
+    padding-left: 2em;
+    margin: auto;
+  }
+}
