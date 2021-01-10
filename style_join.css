@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* 共通設定 */
+@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Indie+Flower&family=Noto+Sans+JP&display=swap");
 html body {
   height: 100%;
 }
@@ -11,9 +12,10 @@ html body {
 }
 .top_logo p {
   position: absolute;
-  color: #84b8d8;
+  color: #6bc1e1;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-family: "Indie Flower", cursive;
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
@@ -45,13 +47,14 @@ html body {
 a.btn-border {
   display: block;
   padding: 1rem;
-  border: 0.2em dashed rgba(77, 72, 70, 0.842);
+  border: 0.2em dashed #f6e5e4;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   text-decoration: none;
   text-align: center;
-  color: rgba(77, 72, 70, 0.842);
+  color: #f6e5e4;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 3em;
+  font-family: "Indie Flower", cursive;
 }
 
 /* キャラクター画面  */
@@ -80,7 +83,7 @@ a.btn-border {
   grid-template-columns: 15% 1fr;
   grid-template-rows: auto;
   grid-template-areas: "container_left container_right";
-  background-color: #fffde4;
+  background-color: #fff5ee;
   overflow: auto;
 }
 
@@ -89,7 +92,7 @@ a.btn-border {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: container_left;
-  background-color: #84b8d8;
+  background-color: #6bc1e1;
   position: relative;
 }
 
@@ -101,6 +104,7 @@ a.btn-border {
   grid-template-columns: 50% 50%;
   grid-template-rows: 15% 70% 15%;
   grid-template-areas: "top_index_area top_index_area" "input_form_area choose_chara_area" "submit_area submit_area";
+  font-family: "Indie Flower", cursive, "Noto Sans JP", sans-serif;
 }
 
 /*  入力フォーム  */
@@ -109,7 +113,7 @@ a.btn-border {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: top_index_area;
-  font-size: 2em;
+  font-size: 2.5em;
   padding: 2em;
 }
 
@@ -162,7 +166,7 @@ a.btn-border {
   min-height: 2em;
   border-radius: 50%;
   margin: 0 auto;
-  background-color: seashell;
+  background-color: #ffffff;
   position: absolute;
   bottom: -5%;
   left: 50%;
@@ -218,12 +222,15 @@ a.btn-border {
   width: 30%;
   max-height: 7em;
   font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 0.5em;
+  font-family: "Indie Flower", cursive, "Noto Sans JP", sans-serif;
   border: 1px solid transparent;
   border-radius: 10%;
   padding: 0.5em;
   margin: auto;
   display: block;
-  background: #84b8d8;
+  background: #6bc1e1;
   color: #ffffff;
 }
 

@@ -93,7 +93,7 @@ require('db_connect.php');
 					<?php endif; ?>
         </div>
         <div class="re_password form_group">
-          <label for="re_password">再入力</label>
+          <label for="re_password">re-enter</label>
           <input type="password" id="re_password" name="re_password" size="10" maxlength="20" class="form-control" required>
           <?php if($_POST['password'] !== $_POST['re_password']): ?>
             <p class="error">パスワードが一致しません</p>

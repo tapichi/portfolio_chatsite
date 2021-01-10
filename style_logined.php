@@ -11,7 +11,6 @@ $status_bar_cake = $status_bar['count_status_cake'] * 10;
 
 ?>
 
-
 html body {
   height: 100%;
 }
@@ -23,14 +22,13 @@ html body {
   min-height: 100%;
   grid-template-rows: auto;
   grid-template-columns: 15% 35% 1fr;
-  background-color: #ffcdd2;
-  /* overflow: hidden; */
 }
 
 /* グリッド */
+
 .container_left {
   grid-column: 1 / 2 ;
-  background-color: #7fcac3;
+  background-color: #6bc1e1;
   position: relative;
 }
 .container_center {
@@ -38,11 +36,14 @@ html body {
   display: grid;
   grid-template-rows: 10% 65% 5% 20%;
   grid-template-columns: 100%;
-  background-color: #ffcdd2;
+  background-color: #fff5ee;
 }
 .container_right {
   grid-column: 3 / 4 ;
-  background-color: #fdfdf5;
+  background-image:url(./img/center_back_img.jpg);
+  background-color:rgba(255,255,255,0.3);
+  background-blend-mode:lighten;
+  background-size:cover;
   overflow: auto;
 }
 
@@ -54,9 +55,10 @@ html body {
 
 .top_logo p {
   position: absolute;
-  color: #7fcac3;
+  color: #6bc1e1;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-family: 'Indie Flower', cursive;
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
@@ -93,13 +95,14 @@ html body {
 a.btn-border {
   display: block;
   padding: 1rem;
-  border: .2em dashed #ffcdd2;
+  border: .2em dashed #f6e5e4;
   border-radius: .5rem .5rem .5rem .5rem;
   text-decoration: none;
   text-align: center;
-  color: #ffcdd2;
+  color: #f6e5e4;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 3em;
+  font-family: 'Indie Flower', cursive;
 }
 
 /* キャラクター画面  */
@@ -109,9 +112,10 @@ a.btn-border {
   text-align: center;
   margin: auto;
   font-weight: bold;
-  font-size: 2.5em;
-  line-height: 1.5em;
-  color: #7fcac3;
+  font-size: 3em;
+  font-family: 'Indie Flower', cursive;
+  line-height: 2em;
+  color: #6bc1e1;
   width: 100%;
   height: auto;
   overflow: hidden;
@@ -137,6 +141,7 @@ a.btn-border {
   min-height: 6em;
   max-height: 6em;
   font-size: 2em;
+  font-family: 'Noto Sans JP', sans-serif;
   color: #5e5e5e;
 }
 
@@ -167,17 +172,16 @@ a.btn-border {
   -ms-transform: translate(-25%);
   -webkit-transform: translate(-25%);
   font-size: 1em;
-  /* cursor:pointer; */
+  font-family: 'Indie Flower', cursive;
   border:none;
   display: inline-block;
-  /* width:2em; */
-  background: #7fcac3;
+  background: #6bc1e1;
   color: #5e5e5e;
   font-weight:bold;
   margin:0.5em;
   padding: 0.5em;
   border-radius: 25%;
-  box-shadow: 0 0 0.2em #f5f1a6;
+  box-shadow: 0 0 0.2em #6bc1e1;
   z-index: 100;
 }
 .msg_time_count {
@@ -189,6 +193,7 @@ a.btn-border {
   -ms-transform: translate(-10%);
   -webkit-transform: translate(-10%);
   font-size: 2em;
+  font-family: 'Indie Flower', cursive;
   color:#5e5e5e;
 }
 
@@ -219,7 +224,7 @@ a.btn-border {
   margin: 0 auto;
   height: 8em;
   min-height: 2em;
-  background-color: seashell;
+  background-color: #ffffff;
   border-radius: 50%;
   position: absolute;
   top: 75%;
@@ -251,6 +256,7 @@ a.btn-border {
   height: auto;
   min-height: 4em;
   font-size: 2em;
+  font-family: 'Indie Flower', cursive;
   text-align: center;
 }
 
@@ -268,6 +274,7 @@ a.btn-border {
   height: 100%;
   padding-bottom: 1em;
   overflow: hidden;
+  font-family: 'Indie Flower', cursive;
 }
 
 .status_img_1 {
@@ -319,6 +326,7 @@ a.btn-border {
   color: #ffffff;
   height: 2em;
   line-height: 2em;
+  letter-spacing: 0.1em;
 }
 
 .bar_1_color {
@@ -413,7 +421,7 @@ a.btn-border {
   min-width: 90%;
   min-height: 5em;
   border-radius: 12px;
-  background: #f5f1a6;
+  background: #fff5ee;
 }
 
 .my_msg .says::after {
@@ -423,7 +431,7 @@ a.btn-border {
   top: 3px;
   left: -19px;
   border: 8px solid transparent;
-  border-right: 18px solid #f5f1a6;
+  border-right: 18px solid #fff5ee;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
@@ -432,6 +440,7 @@ a.btn-border {
   margin: 0;
   padding: 0;
   font-size: 2em;
+  font-family: 'Indie Flower', cursive,'Noto Sans JP', sans-serif,;
   color: #5e5e5e;
 }
 
@@ -442,7 +451,7 @@ a.btn-border {
   top: 3px;
   right: -19px;
   border: 8px solid transparent;
-  border-right: 18px solid #f5f1a6;
+  border-right: 18px solid #fff5ee;
   -webkit-transform: rotate(140deg);
   transform: rotate(140deg);
 }

@@ -34,6 +34,7 @@
   grid-area: top_index_area;
   font-size: 2em;
   padding: 2em;
+  font-family: 'Indie Flower', cursive, 'Noto Sans JP', sans-serif;
 }
 
 .login {
@@ -46,6 +47,7 @@
   width: 100%;
   height: auto;
   font-size: 2em;
+  font-family: 'Indie Flower', cursive, 'Noto Sans JP', sans-serif;
   padding: 1em 1em 1em 3em;
 }
 
@@ -69,6 +71,9 @@
     width: 30%;
     max-height: 7em;
     font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+    font-family: 'Indie Flower', cursive, 'Noto Sans JP', sans-serif;
     background: $mainColorBlue;
     color: #ffffff;
   }
