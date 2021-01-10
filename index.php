@@ -12,6 +12,7 @@ require('db_connect.php');
 
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_index.css" />
 
   <title>Praise us!</title>
 </head>
@@ -22,7 +23,7 @@ require('db_connect.php');
 <div class="container_left">
   <div class="top_logo">
     <img src="./img/logo.png" alt="">
-    <p>Praise<br><br>us !</p>
+    <p>Three<br>Good<br>Things!</p>
   </div>
 
   <!-- 会員登録ボタン -->
@@ -96,7 +97,7 @@ require('db_connect.php');
   <div class="user_msg my_msg">
     <div class="msg">
       <div class="says">
-        <p class="says_center">今日のよかったことを呟いてみよう：）</p>
+        <p class="says_center">今日の良いことを３つ書いてみよう：）</p>
       </div>
     </div>
   </div>
@@ -105,10 +106,8 @@ require('db_connect.php');
       'スケジュール通り勉強できた★',
       '筋トレ継続５日目です。',
       'スパイスカレーのテンパリングがうまくいった！！',
-      'Praise us! は Three Good Things を実践するための投稿サイトです。',
-      '「良いことを毎日三つ書く」を、楽しく継続できるよう、以下の機能を実装しています。',
-      '会員登録機能、投稿機能、他ユーザーへのアクション機能、アクションにより投稿可能数増加、キャラクターのレベルアップ、イラスト変化　等',
-  
+      '本サイトは「良いことを毎日三つ書く」を、楽しく継続するためのサイトです。',
+      '会員登録機能、投稿機能、他ユーザーへのアクション機能、アクションにより投稿可能数増加、キャラクターのレベルアップ、イラスト変化　等の機能を実装しています。',
     );
     foreach($posts_2 as $index => $post):  ?>
   <div class="user_msg other_msg">

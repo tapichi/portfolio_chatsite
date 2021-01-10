@@ -1,4 +1,6 @@
 
+@import "style";
+
 #wrap {
   display: grid;
   width: 100vw;
@@ -8,7 +10,6 @@
   grid-template-rows: auto;
   grid-template-areas: 
     "container_left container_center container_right";
-  background-color: $mainColorPink;
 }
 
 /* グリッド */
@@ -29,14 +30,17 @@
     "character_1 flying_1"
     "flying_2 character_2"
     "character_3 flying_3";
-  background-color: $mainColorPink;
+  background-color: $mainColorWhite;
 }
 
 .container_right {
   grid-area: container_right;
-  background-color: #fdfdf5;
+  overflow: auto;
+  background-image:url(./img/center_back_img.jpg);
+  background-color:rgba(255,255,255,0.3);
+  background-blend-mode:lighten;
+  background-size:cover;
 }
-
 
 /* キャラクター画面  */
 
@@ -46,7 +50,8 @@
   text-align: center;
   line-height: 1.5em;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 3.5em;
+  font-family: 'Indie Flower', cursive;
   margin: auto 2rem;
 }
 
@@ -81,7 +86,7 @@ $characters: character_1, character_2, character_3;
   min-height: 2em;
   border-radius: 50%;
   position: absolute;
-  background-color: seashell;
+  background-color: #ffffff;
   top: 75%;
   z-index: 2;
 }
@@ -100,24 +105,6 @@ $flyings: flying_1, flying_2, flying_3;
     grid-area: $flying;
     position: relative; 
   }
-}
-
-/* 回転アニメーション */
-@keyframes rotate_food {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.flying_animation {
-  width: 15%;
-  animation: rotate_food 2s infinite;
-  position: absolute;
-  top: 4em;
-  left: 5em;
 }
 
 /* 投稿画面 */
@@ -169,11 +156,12 @@ $flyings: flying_1, flying_2, flying_3;
   min-width: 90%;
   min-height: 3em;
   border-radius: 12px;
-  background: #f5f1a6;
+  background: $mainColorWhite;
   p {
     margin: 0;
     padding: 0.2em;
     font-size: 1.5em;
+    font-family: 'Noto Sans JP', sans-serif;
   }
 }
 
