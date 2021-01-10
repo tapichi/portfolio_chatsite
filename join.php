@@ -55,7 +55,7 @@ require('db_connect.php');
 <div class="container_left">
   <div class="top_logo">
     <img src="./img/logo.png" alt="">
-    <p>Praise<br><br>us !</p>
+    <p>Three<br>Good<br>Things!</p>
   </div>
 
   <!-- 戻るボタン -->

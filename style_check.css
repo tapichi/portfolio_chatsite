@@ -4,36 +4,6 @@ html body {
   height: 100%;
 }
 
-#wrap {
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100%;
-  grid-template-columns: 15% 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: "container_left container_right";
-  background-color: #ffcdd2;
-  overflow: auto;
-}
-
-/* グリッド */
-.container_left {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: container_left;
-  background-color: #7fcac3;
-  position: relative;
-}
-
-.container_right {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: container_right;
-  display: grid;
-  grid-template-rows: 15% 30% 40% 15%;
-  grid-template-areas: "top_index_area" "confirm_area" "confirm_chara_area" "submit_area";
-}
-
 /* 共通バー */
 /* トップロゴ */
 .top_logo {
@@ -41,7 +11,7 @@ html body {
 }
 .top_logo p {
   position: absolute;
-  color: #7fcac3;
+  color: #84b8d8;
   font-weight: bold;
   font-size: 2.5rem;
   top: 50%;
@@ -75,13 +45,61 @@ html body {
 a.btn-border {
   display: block;
   padding: 1rem;
-  border: 0.2em dashed #ffcdd2;
+  border: 0.2em dashed rgba(77, 72, 70, 0.842);
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   text-decoration: none;
   text-align: center;
-  color: #ffcdd2;
+  color: rgba(77, 72, 70, 0.842);
   font-weight: bold;
   font-size: 2em;
+}
+
+/* キャラクター画面  */
+/* 回転アニメーション */
+@keyframes rotate_food {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.flying_animation {
+  width: 15%;
+  animation: rotate_food 2s infinite;
+  position: absolute;
+  top: 4em;
+  left: 5em;
+}
+
+#wrap {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  grid-template-columns: 15% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "container_left container_right";
+  background-color: #fffde4;
+  overflow: auto;
+}
+
+/* グリッド */
+.container_left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: container_left;
+  background-color: #84b8d8;
+  position: relative;
+}
+
+.container_right {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: container_right;
+  display: grid;
+  grid-template-rows: 15% 30% 40% 15%;
+  grid-template-areas: "top_index_area" "confirm_area" "confirm_chara_area" "submit_area";
 }
 
 /*  確認フォーム  */
@@ -188,7 +206,7 @@ a.btn-border {
   width: 30%;
   max-height: 7em;
   font-size: 3em;
-  background: #7fcac3;
+  background: #84b8d8;
   color: #ffffff;
 }
 /*# sourceMappingURL=style_check.css.map */
