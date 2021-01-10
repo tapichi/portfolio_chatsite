@@ -142,6 +142,8 @@ $status_bar = $status->fetch();
 
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="style_logined.php" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+JP&display=swap" rel="stylesheet">
 
   <title>Praise us!</title>
 </head>
@@ -182,7 +184,6 @@ $status_bar = $status->fetch();
 <!-- ログイン時キャラクター画面 -->
 <div class="container_center">
   <div class="top_lead">
-    <!-- <p>Write Today's Good Things ! <br> Tell me about !</p> -->
     <p>Write Today's Good Things !</p>
   </div>
   <div class="character_container">
@@ -192,9 +193,9 @@ $status_bar = $status->fetch();
     <div class="msg_form">
       <div class="msg_form_area">
         <form action="" method="post">
-          <textarea class="msg_form_input" name="message" id="message" cols="30" rows="10"></textarea>
+          <textarea class="msg_form_input" name="message" id="message" cols="30" rows="10" onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
             <input type="hidden" name="form_id" value="1">
-            <input type="submit" name="submit" value="done">
+            <input type="submit" id="submit" name="submit" value="done">
             <div class="msg_time_count">
               <p>★×<?php print(h($user['post_count'])); ?></p>
             </div>

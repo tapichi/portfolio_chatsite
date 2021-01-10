@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* 共通設定 */
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+JP&family=Source+Code+Pro:wght@300&display=swap");
 html body {
   height: 100%;
 }
@@ -11,9 +12,10 @@ html body {
 }
 .top_logo p {
   position: absolute;
-  color: #84b8d8;
+  color: #6bc1e1;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-family: "Indie Flower", cursive;
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
@@ -45,13 +47,14 @@ html body {
 a.btn-border {
   display: block;
   padding: 1rem;
-  border: 0.2em dashed rgba(77, 72, 70, 0.842);
+  border: 0.2em dashed #f6e5e4;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   text-decoration: none;
   text-align: center;
-  color: rgba(77, 72, 70, 0.842);
+  color: #f6e5e4;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 3em;
+  font-family: "Indie Flower", cursive;
 }
 
 /* キャラクター画面  */
@@ -80,7 +83,7 @@ a.btn-border {
   grid-template-columns: 15% 1fr;
   grid-template-rows: auto;
   grid-template-areas: "container_left container_right";
-  background-color: #fffde4;
+  background-color: #fff5ee;
   overflow: auto;
 }
 
@@ -89,7 +92,7 @@ a.btn-border {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: container_left;
-  background-color: #84b8d8;
+  background-color: #6bc1e1;
   position: relative;
 }
 
@@ -109,6 +112,7 @@ a.btn-border {
   grid-area: top_index_area;
   font-size: 2em;
   padding: 2em;
+  font-family: "Indie Flower", cursive, "Noto Sans JP", sans-serif;
 }
 
 .login {
@@ -123,6 +127,7 @@ a.btn-border {
   width: 100%;
   height: auto;
   font-size: 2em;
+  font-family: "Indie Flower", cursive, "Noto Sans JP", sans-serif;
   padding: 1em 1em 1em 3em;
 }
 
@@ -148,7 +153,10 @@ a.btn-border {
   width: 30%;
   max-height: 7em;
   font-size: 3em;
-  background: #84b8d8;
+  font-weight: bold;
+  letter-spacing: 0.5em;
+  font-family: "Indie Flower", cursive, "Noto Sans JP", sans-serif;
+  background: #6bc1e1;
   color: #ffffff;
 }
 /*# sourceMappingURL=style_login.css.map */
